@@ -5,7 +5,7 @@ Summary:	knoda - MySQL/PostgreSQL/any ODBC DB  GUI for KDE
 Summary(pl):	knoda - Graficzny interejs do baz MySQL/PostgreSQL/ODBC dla KDE
 Name:		knoda
 Version:	0.6.1
-Release:	5.1
+Release:	0.1
 License:	GPL
 Group:		X11/Applications/Databases
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
@@ -15,6 +15,7 @@ BuildRequires:	hk_classes-devel >= %{version}
 BuildRequires:	kdelibs-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%define         _prefix         /usr/X11R6
 %define		_htmldir	/usr/share/doc/kde/HTML
 
 %description
