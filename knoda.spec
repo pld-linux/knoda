@@ -61,6 +61,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/knoda
 %attr(755,root,root) %{_libdir}/libhk_kde*.so
+# *.la _needed_. Empirically tested when trying to open table view (segfault)
 %attr(755,root,root) %{_libdir}/libhk_kde*.la
 %{_datadir}/apps/hk_kdeclasses
 %{_datadir}/apps/knoda
