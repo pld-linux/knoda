@@ -12,7 +12,9 @@ Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 # Source0-md5:	726335a3dd3fd3f7ef8308eef61a39bf
 URL:		http://knoda.sourceforge.net/
 BuildRequires:	hk_classes-devel >= %{version}
+BuildRequires:	fam-devel
 BuildRequires:	kdelibs-devel
+BuildRequires:	libart_lgpl-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_htmldir	/usr/share/doc/kde/HTML
@@ -60,6 +62,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libhk_kde*.so
 # *.la are needed (SEGV when trying to open table view without them)
 %{_libdir}/libhk_kde*.la
+%attr(755,root,root) %{_libdir}/kde3/libhk_*.so
+%{_libdir}/kde3/libhk_*.la
 %{_datadir}/apps/hk_kdeclasses
 %{_datadir}/apps/knoda
 %{_datadir}/services/*.desktop
@@ -68,3 +72,7 @@ rm -rf $RPM_BUILD_ROOT
 
 # hk_kdeclasses-devel?
 # %{_includedir}/hk_kde*.h
+
+# python-hk_kdeclasses?
+# %{py_sitedir}/hk_kdeclasses.py*
+# %attr(755,root,root) %{py_sitedir}/_hk_kdeclasses.so
