@@ -1,22 +1,17 @@
 # TODO:
 #   - Make /usr/lib/hk_classes/drivers as default driver dir.
-#   - Fix build with python, module seems to be build but configure:
-#     checking for Python2.3... header /usr/include/python2.3 library 
-#         /usr/lib modules no
-#     (...)
-#     no Python support
 #   - Check if linking with libXrender.la is OK - I'm not sure.
 #   - Check/fix Patch0
 
 Summary:	knoda - MySQL/PostgreSQL/any ODBC DB GUI for KDE
 Summary(pl):	knoda - Graficzny interejs do baz MySQL/PostgreSQL/ODBC dla KDE
 Name:		knoda
-Version:	0.7
+Version:	0.7.2
 Release:	1
 License:	GPL
 Group:		Applications/Databases
 Source0:	http://dl.sourceforge.net/knoda/%{name}-%{version}.tar.bz2
-# Source0-md5:	40bec8b2b27cfcc486731951971fd288
+# Source0-md5:	a26b02ad9b7abc0a746241f09219c4eb
 # Patch0:		%{name}-desktop.patch
 URL:		http://knoda.sourceforge.net/
 BuildRequires:	automake
@@ -24,6 +19,8 @@ BuildRequires:	hk_classes-devel >= %{version}
 BuildRequires:	kdelibs-devel
 # withdrawn?
 BuildRequires:	xrender-devel
+# NOTE: knoda 0.7 has link errors when used with hk_classes 0.7.2  
+Requires:	hk_classes = %{version}
 Obsoletes:	python-hk_kdeclasses
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -86,10 +83,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/hk_kdeclasses
 %{_datadir}/apps/knoda
 %{_datadir}/services/*.desktop
+%{_datadir}/mimelnk/application/*.desktop
 %{_desktopdir}/kde/*.desktop
 %{_iconsdir}/hicolor/*/*/*.png
 
-# hk_kdeclasses-devel?
+# hk_kdeclasses-devel
 # %{_includedir}/hk_kde*.h
 
 #%%files -n python-hk_kdeclasses
