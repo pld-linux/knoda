@@ -5,32 +5,28 @@
 # ./configure --prefix=/your_KDE_directory ? 
 # See the documentation for details. 
 
+Summary:	knoda - MySQL/PostgreSQL GUI for KDE
+Summary(pl):	knoda - Graficzny interejs do baz MySQL/PostgreSQL dla KDE
 Name:		knoda
-Summary:	knoda -- MySQL GUI for KDE
-Summary(pl):knoda - Graficzny interejs do baz MySQL/Postgersql dla KDE  
 Version:	0.5.4
 Release:	1.1
 License:	GPL
 Group:		Applications/Databases
 Source0:	http://dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}.tar.gz
-
-# Currently hk_classes contains all in one.
-BuildRequires:  hk_classes >= 0.5.4
-
+BuildRequires:  hk_classes-devel >= 0.5.4
+BuildRequires:	kdelibs-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-KDE-based frontend for MySQL
-
-
-%description -l ru
-клиент MySQL для KDE
+KDE-based frontend for MySQL/PostgreSQL.
 
 %description -l pl
-Graficzny interejs do baz MySQL/Postgersql dla KDE
+Graficzny interejs do baz MySQL/PostgreSQL dla KDE.
+
+%description -l ru
+клиент MySQL/PostgreSQL для KDE.
 
 %prep
-rm -rf $RPM_BUILD_ROOT
 %setup -q
 
 %build
@@ -41,14 +37,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} DESTDIR=$RPM_BUILD_ROOT install
-# find . -type f -o -type l | sed 's|^\.||' > $RPM_BUILD_ROOT/master.list
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-# %files -f %{_tmppath}/%{name}-buildroot/master.list
 %files
 %defattr(644,root,root,755)
-
-%attr (-,root,root) /*
+# TODO
