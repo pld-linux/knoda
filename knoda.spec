@@ -44,7 +44,8 @@ kde_appsdir="%{_applnkdir}"; export kde_appsdir
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} DESTDIR=$RPM_BUILD_ROOT install
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 # TODO: Check if below can be done in simpler way.
 install -d $RPM_BUILD_ROOT%{_applnkdir}/Office/Databases
