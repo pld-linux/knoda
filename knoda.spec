@@ -15,6 +15,8 @@ BuildRequires:  hk_classes-devel >= %{version}
 BuildRequires:	kdelibs-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%define		_htmldir	/usr/share/doc/kde/HTML
+
 %description
 KDE-based frontend for MySQL/PostgreSQL/ODBC DB.
 
@@ -28,9 +30,6 @@ Graficzny interfejs do baz MySQL/PostgreSQL/ODBC dla KDE.
 %setup -q
 
 %build
-# %%define         _prefix         /usr/X11R6
-
-#%%{__autoconf}
 kde_htmldir="%{_htmldir}"; export kde_htmldir
 kde_icondir="%{_pixmapsdir}"; export kde_icondir
 kde_appsdir="%{_applnkdir}"; export kde_appsdir
@@ -44,10 +43,10 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} DESTDIR=$RPM_BUILD_ROOT install
 
 # TODO: Check if below can be done in simpler way.
-mkdir -p $RPM_BUILD_ROOT/%{_applnkdir}/Office/Databases
-mv $RPM_BUILD_ROOT/%{_applnkdir}/Office/*.desktop $RPM_BUILD_ROOT/%{_applnkdir}/Office/Databases/
+install -d $RPM_BUILD_ROOT%{_applnkdir}/Office/Databases
+mv $RPM_BUILD_ROOT%{_applnkdir}/Office/*.desktop $RPM_BUILD_ROOT/%{_applnkdir}/Office/Databases/
 
-%find_lang %{name}
+%find_lang %{name} --with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
