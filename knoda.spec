@@ -19,6 +19,7 @@ BuildRequires:	hk_classes-devel >= %{version}
 BuildRequires:	kdelibs-devel
 # withdrawn?
 BuildRequires:	xrender-devel
+BuildRequires:	rpmbuild(macros) >= 1.129
 # NOTE: knoda 0.7 has link errors when used with hk_classes 0.7.2  
 Requires:	hk_classes = %{version}
 Obsoletes:	python-hk_kdeclasses
