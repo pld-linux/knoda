@@ -16,11 +16,11 @@ Group:		X11/Applications/Databases
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 # Source0-md5:	057c28b007f84904a9f12b090af7b641
 URL:		http://knoda.sourceforge.net/
+BuildRequires:	automake
 BuildRequires:	hk_classes-devel >= %{version}
-BuildRequires:	fam-devel
+# temporary for 0.6.2a
+BuildRequires:	hk_classes-devel >= 0.6.2a-3
 BuildRequires:	kdelibs-devel
-BuildRequires:	libart_lgpl-devel
-BuildConflicts:	libiconv-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -32,16 +32,16 @@ Graficzny interfejs do baz MySQL/PostgreSQL/ODBC dla KDE.
 %description -l ru
 ÀÃ…≈Œ‘ MySQL/PostgreSQL ƒÃ— KDE.
 
-%package python-hk_kdeclasses
+%package -n python-hk_kdeclasses
 Summary:        Python interface to knoda 
 Summary(pl):    Interfejs do knoda dla jÍzyka Python
 Group:          Development/Libraries
 Requires:       %{name} = %{version}-%{release}
 
-%description python-hk_kdeclasses
+%description -n python-hk_kdeclasses
 Python inteface to knoda and hk_kdeclasses used by knoda.
 
-%description python-hk_kdeclasses -l pl
+%description -n python-hk_kdeclasses -l pl
 Pythonowy interfejs do programu knoda i uøywanych przez niego
 klass hk_kdeclasses.
 
@@ -49,7 +49,7 @@ klass hk_kdeclasses.
 %setup -q
 
 %build
-
+cp -f /usr/share/automake/config.* admin
 %configure
 %{__make}
 
@@ -87,6 +87,7 @@ rm -rf $RPM_BUILD_ROOT
 # hk_kdeclasses-devel?
 # %{_includedir}/hk_kde*.h
 
-%files python-hk_kdeclasses
+%files -n python-hk_kdeclasses
+%defattr(644,root,root,755)
 %{py_sitedir}/hk_kdeclasses.py[co]
 %attr(755,root,root) %{py_sitedir}/_hk_kdeclasses.so
