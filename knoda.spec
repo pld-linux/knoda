@@ -14,8 +14,10 @@ Source0:	http://dl.sourceforge.net/knoda/%{name}-%{version}.tar.bz2
 # Source0-md5:	035790b0ff64451cc6ed2ba71aff0c5d
 # Patch0:		%{name}-desktop.patch
 URL:		http://knoda.sourceforge.net/
+BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	hk_classes-devel >= %{version}
+BuildRequires:	libtool
 BuildRequires:	kdelibs-devel
 # withdrawn?
 BuildRequires:	xrender-devel
