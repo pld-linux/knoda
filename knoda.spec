@@ -1,7 +1,8 @@
 # TODO:
 #   - Make /usr/lib/hk_classes/drivers as default driver dir.
-#   - Fix build tih python:
-#     checking for Python2.3... header /usr/include/python2.3 library /usr/lib modules no
+#   - Fix build with python, module seems to be build but configure:
+#     checking for Python2.3... header /usr/include/python2.3 library 
+#         /usr/lib modules no
 #     (...)
 #     no Python support
 
@@ -9,7 +10,7 @@ Summary:	knoda - MySQL/PostgreSQL/any ODBC DB GUI for KDE
 Summary(pl):	knoda - Graficzny interejs do baz MySQL/PostgreSQL/ODBC dla KDE
 Name:		knoda
 Version:	0.6.2a
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications/Databases
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
@@ -32,6 +33,19 @@ Graficzny interfejs do baz MySQL/PostgreSQL/ODBC dla KDE.
 
 %description -l ru
 ÀÃ…≈Œ‘ MySQL/PostgreSQL ƒÃ— KDE.
+
+%package python-hk_kdeclasses
+Summary:        Python interface to knoda 
+Summary(pl):    Interfejs do knoda dla jÍzyka Python
+Group:          Development/Libraries
+Requires:       %{name} = %{version}-%{release}
+
+%description python-hk_kdeclasses
+Python inteface to knoda and hk_kdeclasses used by knoda.
+
+%description python-hk_kdeclasses -l pl
+Pythonowy interfejs do programu knoda i uøywanych przez niego
+klass hk_kdeclasses.
 
 %prep
 %setup -q
@@ -75,9 +89,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_applnkdir}/Office/Databases/*.desktop
 %{_pixmapsdir}/*/*/apps/knoda.png
 
+
 # hk_kdeclasses-devel?
 # %{_includedir}/hk_kde*.h
 
-# python-hk_kdeclasses?
-# %{py_sitedir}/hk_kdeclasses.py*
-# %attr(755,root,root) %{py_sitedir}/_hk_kdeclasses.so
+%files python-hk_kdeclasses
+%{py_sitedir}/hk_kdeclasses.py[co]
+%attr(755,root,root) %{py_sitedir}/_hk_kdeclasses.so
