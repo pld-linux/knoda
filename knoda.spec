@@ -17,7 +17,6 @@ BuildRequires:  hk_classes-devel >= %{version}
 BuildRequires:	kdelibs-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_prefix		/usr/X11R6
 
 %description
 KDE-based frontend for MySQL/PostgreSQL/ODBC DB.
