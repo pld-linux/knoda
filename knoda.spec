@@ -13,6 +13,7 @@ Release:	1.1
 License:	GPL
 Group:		Applications/Databases
 Source0:	http://dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}.tar.gz
+URL:		http://knoda.sourceforge.net/
 BuildRequires:  hk_classes-devel >= 0.5.4
 BuildRequires:	kdelibs-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
