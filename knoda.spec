@@ -1,11 +1,15 @@
 # TODO:
 #   - Make /usr/lib/hk_classes/drivers as default driver dir.
+#   - Fix build tih python:
+#     checking for Python2.3... header /usr/include/python2.3 library /usr/lib modules no
+#     (...)
+#     no Python support
 
 Summary:	knoda - MySQL/PostgreSQL/any ODBC DB  GUI for KDE
 Summary(pl):	knoda - Graficzny interejs do baz MySQL/PostgreSQL/ODBC dla KDE
 Name:		knoda
 Version:	0.6.2a
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Databases
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
@@ -15,6 +19,7 @@ BuildRequires:	hk_classes-devel >= %{version}
 BuildRequires:	fam-devel
 BuildRequires:	kdelibs-devel
 BuildRequires:	libart_lgpl-devel
+BuildRequires:  libiconv-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_htmldir	/usr/share/doc/kde/HTML
