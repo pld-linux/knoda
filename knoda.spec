@@ -53,7 +53,6 @@ Graficzny interfejs do baz MySQL/PostgreSQL/ODBC dla KDE.
 # %%patch0 -p1
 
 %build
-%{__gettextize}
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
