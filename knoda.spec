@@ -41,6 +41,7 @@ Graficzny interfejs do baz MySQL/PostgreSQL/ODBC dla KDE.
 #Summary(pl):    Interfejs do knoda dla jêzyka Python
 #Group:          Development/Libraries
 #Requires:       %{name} = %{version}-%{release}
+#%pyrequires_eq	python-libs
 
 #%%description -n python-hk_kdeclasses
 # Python inteface to knoda and hk_kdeclasses used by knoda.
