@@ -1,15 +1,15 @@
 # TODO:
-#   - Needs hk_classes.spec to be fixed first 
 #   - Add docs part
 #   - Remove some files from /usr/X11R6/share/*
-#
-# Consider packaging hk_kdeclasses separately.
+#   - Consider packaging hk_kdeclasses separately if any other app would use hk_kdeclasses
+#   - Add icon 
+#   - Place in proper place in menu.
 
-Summary:	knoda - MySQL/PostgreSQL GUI for KDE
-Summary(pl):	knoda - Graficzny interejs do baz MySQL/PostgreSQL dla KDE
+Summary:	knoda - MySQL/PostgreSQL/any ODBC DB  GUI for KDE
+Summary(pl):	knoda - Graficzny interejs do baz MySQL/PostgreSQL/ODBC dla KDE
 Name:		knoda
 Version:	0.5.5
-Release:	0.1
+Release:	0.9
 License:	GPL
 Group:		Applications/Databases
 Source0:	http://dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}.tar.gz
@@ -19,10 +19,10 @@ BuildRequires:	kdelibs-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-KDE-based frontend for MySQL/PostgreSQL.
+KDE-based frontend for MySQL/PostgreSQL/ODBC DB.
 
 %description -l pl
-Graficzny interejs do baz MySQL/PostgreSQL dla KDE.
+Graficzny interfejs do baz MySQL/PostgreSQL/ODBC dla KDE.
 
 %description -l ru
 клиент MySQL/PostgreSQL для KDE.
@@ -31,7 +31,7 @@ Graficzny interejs do baz MySQL/PostgreSQL dla KDE.
 %setup -q
 
 %build
-#%{__autoconf}
+#%%{__autoconf}
 kde_htmldir="%{_htmldir}"; export kde_htmldir
 kde_icondir="%{_pixmapsdir}"; export kde_icondir
 
