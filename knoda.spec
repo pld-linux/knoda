@@ -5,22 +5,25 @@
 #         /usr/lib modules no
 #     (...)
 #     no Python support
+#   - Check if linking with libXrender.la is OK - I'm not sure.
+#   - Check/fix Patch0
 
 Summary:	knoda - MySQL/PostgreSQL/any ODBC DB GUI for KDE
 Summary(pl):	knoda - Graficzny interejs do baz MySQL/PostgreSQL/ODBC dla KDE
 Name:		knoda
-Version:	0.6.3
-Release:	2
+Version:	0.7
+Release:	0.1
 License:	GPL
 Group:		X11/Applications/Databases
 Source0:	http://dl.sourceforge.net/knoda/%{name}-%{version}.tar.bz2
-# Source0-md5:	afa3e8739e6629fbaf0ae63fae2fa08a
-Patch0:		%{name}-desktop.patch
+# Source0-md5:	40bec8b2b27cfcc486731951971fd288
+# Patch0:		%{name}-desktop.patch
 URL:		http://knoda.sourceforge.net/
 BuildRequires:	automake
 BuildRequires:	hk_classes-devel >= %{version}
 BuildRequires:	kdelibs-devel
 # withdrawn?
+BuildRequires:	xrender-devel
 Obsoletes:	python-hk_kdeclasses
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -48,7 +51,7 @@ Graficzny interfejs do baz MySQL/PostgreSQL/ODBC dla KDE.
 
 %prep
 %setup -q
-%patch0 -p1
+# %%patch0 -p1
 
 %build
 cp -f /usr/share/automake/config.* admin
