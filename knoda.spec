@@ -28,7 +28,7 @@ Graficzny interfejs do baz MySQL/PostgreSQL/ODBC dla KDE.
 %setup -q
 
 %build
-# %%define         _prefix         /usr/X11R6
+%define         _prefix         /usr/X11R6
 
 #%%{__autoconf}
 kde_htmldir="%{_htmldir}"; export kde_htmldir
