@@ -1,6 +1,5 @@
 # TODO:
 #   - Add docs part
-#   - Remove some files from /usr/X11R6/share/*
 #   - Consider packaging hk_kdeclasses separately if any other app would use hk_kdeclasses
 #   - Add icon 
 #   - Place in proper place in menu.
@@ -11,12 +10,14 @@ Name:		knoda
 Version:	0.5.5
 Release:	0.9
 License:	GPL
-Group:		Applications/Databases
+Group:		X11/Applications/Databases
 Source0:	http://dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}.tar.gz
 URL:		http://knoda.sourceforge.net/
 BuildRequires:  hk_classes-devel >= %{version}
 BuildRequires:	kdelibs-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_prefix		/usr/X11R6
 
 %description
 KDE-based frontend for MySQL/PostgreSQL/ODBC DB.
@@ -42,20 +43,27 @@ kde_icondir="%{_pixmapsdir}"; export kde_icondir
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} DESTDIR=$RPM_BUILD_ROOT install
-mv $RPM_BUILD_ROOT/usr/share/* $RPM_BUILD_ROOT/usr/X11R6/share/
+#mv $RPM_BUILD_ROOT/usr/share/* $RPM_BUILD_ROOT/usr/X11R6/share/
 
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
+%find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%post   -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
+
+%files -f %{name}.lang
 %defattr(644,root,root,755)
-
-/usr/X11R6/lib/libhk_kdeclasses.so.*
-
 %attr(755,root,root) %{_bindir}/knoda
+%attr(755,root,root) %{_libdir}/libhk_kdeclasses.so.*.*
+%{_datadir}/apps/hk_kdeclasses
+%{_datadir}/apps/knoda
+%{_datadir}/services/*.desktop
+%{_applnkdir}/Office/*.desktop
+%{_pixmapsdir}/*/*/apps/knoda.png
 
-# TODO Prolly it is too much
-/usr/X11R6/share/*
+# hk_kdeclasses-devel?
+# %attr(755,root,root) %{_libdir}/libhk_kdeclasses.so
+# %{_libdir}/libhk_kdeclasses.la
+# %{_includedir}/hk_kde*.h
