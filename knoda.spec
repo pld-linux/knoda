@@ -10,7 +10,7 @@ Summary:	knoda - MySQL/PostgreSQL/any ODBC DB GUI for KDE
 Summary(pl):	knoda - Graficzny interejs do baz MySQL/PostgreSQL/ODBC dla KDE
 Name:		knoda
 Version:	0.6.2a
-Release:	3
+Release:	4
 License:	GPL
 Group:		X11/Applications/Databases
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
@@ -22,8 +22,6 @@ BuildRequires:	kdelibs-devel
 BuildRequires:	libart_lgpl-devel
 BuildConflicts:	libiconv-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_htmldir	/usr/share/doc/kde/HTML
 
 %description
 KDE-based frontend for MySQL/PostgreSQL/ODBC DB.
@@ -51,21 +49,17 @@ klass hk_kdeclasses.
 %setup -q
 
 %build
-kde_htmldir="%{_htmldir}"; export kde_htmldir
-kde_icondir="%{_pixmapsdir}"; export kde_icondir
-kde_appsdir="%{_applnkdir}"; export kde_appsdir
 
 %configure
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_applnkdir}/Office/Databases
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
-
-mv $RPM_BUILD_ROOT%{_applnkdir}/Office/*.desktop $RPM_BUILD_ROOT%{_applnkdir}/Office/Databases
+	DESTDIR=$RPM_BUILD_ROOT \
+        kde_htmldir=%{_kdedocdir} \
+        kdelnkdir=%{_desktopdir}/kde
 
 %find_lang %{name} --with-kde
 
@@ -86,9 +80,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/hk_kdeclasses
 %{_datadir}/apps/knoda
 %{_datadir}/services/*.desktop
-%{_applnkdir}/Office/Databases/*.desktop
-%{_pixmapsdir}/*/*/apps/knoda.png
-
+%{_desktopdir}/kde/*.desktop
+#%%{_pixmapsdir}/*/*/apps/knoda.png
+%{_iconsdir}/*/*/*/*.png
 
 # hk_kdeclasses-devel?
 # %{_includedir}/hk_kde*.h
