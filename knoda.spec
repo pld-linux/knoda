@@ -9,6 +9,7 @@ Release:	0.9
 License:	GPL
 Group:		X11/Applications/Databases
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
+# Source0-md5:	c5a1bd3e6c1fc28eb62646c0cb3d8549
 URL:		http://knoda.sourceforge.net/
 BuildRequires:  hk_classes-devel >= %{version}
 BuildRequires:	kdelibs-devel
