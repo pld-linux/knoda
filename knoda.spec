@@ -9,17 +9,15 @@
 Summary:	knoda - MySQL/PostgreSQL/any ODBC DB GUI for KDE
 Summary(pl):	knoda - Graficzny interejs do baz MySQL/PostgreSQL/ODBC dla KDE
 Name:		knoda
-Version:	0.6.2a
-Release:	4
+Version:	0.6.3
+Release:	1
 License:	GPL
 Group:		X11/Applications/Databases
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
-# Source0-md5:	057c28b007f84904a9f12b090af7b641
+# Source0-md5:	afa3e8739e6629fbaf0ae63fae2fa08a
 URL:		http://knoda.sourceforge.net/
 BuildRequires:	automake
 BuildRequires:	hk_classes-devel >= %{version}
-# temporary for 0.6.2a
-BuildRequires:	hk_classes-devel >= 0.6.2a-3
 BuildRequires:	kdelibs-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -32,18 +30,18 @@ Graficzny interfejs do baz MySQL/PostgreSQL/ODBC dla KDE.
 %description -l ru
 ÀÃ…≈Œ‘ MySQL/PostgreSQL ƒÃ— KDE.
 
-%package -n python-hk_kdeclasses
-Summary:        Python interface to knoda 
-Summary(pl):    Interfejs do knoda dla jÍzyka Python
-Group:          Development/Libraries
-Requires:       %{name} = %{version}-%{release}
+#%%package -n python-hk_kdeclasses
+#Summary:        Python interface to knoda 
+#Summary(pl):    Interfejs do knoda dla jÍzyka Python
+#Group:          Development/Libraries
+#Requires:       %{name} = %{version}-%{release}
 
-%description -n python-hk_kdeclasses
-Python inteface to knoda and hk_kdeclasses used by knoda.
+#%%description -n python-hk_kdeclasses
+# Python inteface to knoda and hk_kdeclasses used by knoda.
 
-%description -n python-hk_kdeclasses -l pl
-Pythonowy interfejs do programu knoda i uøywanych przez niego
-klass hk_kdeclasses.
+#%%description -n python-hk_kdeclasses -l pl
+#Pythonowy interfejs do programu knoda i uøywanych przez niego
+#klass hk_kdeclasses.
 
 %prep
 %setup -q
@@ -81,13 +79,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/knoda
 %{_datadir}/services/*.desktop
 %{_desktopdir}/kde/*.desktop
-#%%{_pixmapsdir}/*/*/apps/knoda.png
 %{_iconsdir}/*/*/*/*.png
 
 # hk_kdeclasses-devel?
 # %{_includedir}/hk_kde*.h
 
-%files -n python-hk_kdeclasses
-%defattr(644,root,root,755)
-%{py_sitedir}/hk_kdeclasses.py[co]
-%attr(755,root,root) %{py_sitedir}/_hk_kdeclasses.so
+#%%files -n python-hk_kdeclasses
+#%%defattr(644,root,root,755)
+#%%{py_sitedir}/hk_kdeclasses.py[co]
+#%%attr(755,root,root) %{py_sitedir}/_hk_kdeclasses.so
