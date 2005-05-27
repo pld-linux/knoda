@@ -55,12 +55,11 @@ Graficzny interfejs do baz MySQL/PostgreSQL/ODBC dla KDE.
 # %%patch0 -p1
 
 %build
-%{__libtoolize}
-%{__aclocal}
-%{__autoconf}
-%{__autoheader}
-%{__automake}
-%configure
+cp -f /usr/share/automake/config.sub admin
+%{__make} -f admin/Makefile.common cvs
+
+%configure 
+	
 %{__make}
 
 %install
