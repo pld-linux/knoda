@@ -59,7 +59,7 @@ cp -f /usr/share/automake/config.sub admin
 %{__make} -f admin/Makefile.common cvs
 
 %configure \
-	--with-qt-libraries=%{_datadir}
+	--with-qt-libraries=%{_libdir}
 
 %{__make}
 
