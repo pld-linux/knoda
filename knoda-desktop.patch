@@ -57,3 +57,15 @@
 +Categories=Qt;KDE;Development;
 -
 +# vi: encoding=utf-8
+--- knoda-0.7.3/knoda/knoda.desktop~	2005-05-27 21:12:59.000000000 +0200
++++ knoda-0.7.3/knoda/knoda.desktop	2005-05-27 21:12:59.000000000 +0200
+@@ -12,6 +12,6 @@
+ Comment[fi]=Tietokantakäyttöliittymä
+ Comment[fr]=Application base de données
+ Comment[it]=Un'applicazione base di dati
++Comment[pl]=Frontend do baz danych
+ Terminal=false
+-Encoding=UTF-8
+-Categories=Qt;KDE;Office;Database
+\ No newline at end of file
++Categories=Qt;KDE;Office;Database;
