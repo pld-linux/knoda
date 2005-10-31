@@ -3,19 +3,15 @@
 #   - Check if linking with libXrender.la is OK - I'm not sure.
 #   - Check/fix Patch0
 #
-%define		_ver	0.8
-%define		_test	test2
-%define		_rel	0.1
 Summary:	knoda - MySQL/PostgreSQL/any ODBC DB GUI for KDE
 Summary(pl):	knoda - Graficzny interejs do baz MySQL/PostgreSQL/ODBC dla KDE
 Name:		knoda
-Version:	%{_ver}
-Release:	0.%{_test}.%{_rel}
+Version:	0.8
+Release:	0.1
 License:	GPL
 Group:		Applications/Databases
-#Source0:	http://dl.sourceforge.net/knoda/%{name}-%{version}.tar.gz
-Source0:	http://dl.sourceforge.net/knoda/%{name}-%{_ver}-%{_test}.tar.gz
-# Source0-md5:	3a156ad19673e98827b85050b1eb1a2e
+Source0:	http://dl.sourceforge.net/knoda/%{name}-%{version}.tar.gz
+# Source0-md5:	c5cef874a0d3edf8af8b74f577b88dcb
 Patch0:		%{name}-desktop.patch
 URL:		http://knoda.sourceforge.net/
 BuildRequires:	autoconf
@@ -65,8 +61,7 @@ Knoda - common part for knoda and knoda-rt.
 Knoda - wspólna czê¶æ dla knoda i knoda-rt.
 
 %prep
-#setup -q
-%setup -q -n %{name}-%{_ver}-%{_test}
+%setup -q
 %patch0 -p1
 
 %build
