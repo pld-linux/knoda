@@ -1,5 +1,4 @@
 # TODO:
-#   - Make /usr/lib/hk_classes/drivers as default driver dir.
 #   - Check if linking with libXrender.la is OK - I'm not sure.
 #   - Check/fix Patch0
 #
@@ -69,6 +68,9 @@ cp -f /usr/share/automake/config.sub admin
 %{__make} -f admin/Makefile.common cvs
 
 %configure \
+%if "%{_lib}" == "lib64"
+	--enable-libsuffix=64 \
+%endif
 	--with-qt-libraries=%{_libdir}
 
 %{__make}
@@ -80,6 +82,8 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
         kde_htmldir=%{_kdedocdir} \
         kdelnkdir=%{_desktopdir}/kde
+
+rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
 
 %find_lang %{name} --with-kde
 
@@ -101,8 +105,6 @@ rm -rf $RPM_BUILD_ROOT
 %files common -f %{name}.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libhk_kde*.so
-# *.la are needed (SEGV when trying to open table view without them)
-%{_libdir}/libhk_kde*.la
 %attr(755,root,root) %{_libdir}/kde3/libhk_*.so
 %{_libdir}/kde3/libhk_*.la
 %{_datadir}/apps/hk_kdeclasses
