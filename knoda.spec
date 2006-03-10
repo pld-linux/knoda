@@ -2,7 +2,7 @@
 #   - Check if linking with libXrender.la is OK - I'm not sure.
 #   - Check/fix Patch0
 #
-%define	_test	1
+%define	_test	2
 #
 Summary:	knoda - MySQL/PostgreSQL/any ODBC DB GUI for KDE
 Summary(pl):	knoda - Graficzny interejs do baz MySQL/PostgreSQL/ODBC dla KDE
@@ -12,7 +12,6 @@ Release:	0.test%{_test}.0.1
 License:	GPL
 Group:		Applications/Databases
 Source0:	http://dl.sourceforge.net/knoda/%{name}-%{version}-test%{_test}.tar.gz
-# Source0-md5:	40d09a982cbf68169f248affd4fa3403
 Patch0:		%{name}-desktop.patch
 URL:		http://knoda.sourceforge.net/
 BuildRequires:	autoconf
@@ -30,10 +29,11 @@ Obsoletes:	python-hk_kdeclasses
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-KDE-based frontend for MySQL/PostgreSQL/ODBC DB.
+knoda is a KDE-database frontend based on the hk_classes library.
 
 %description -l pl
-Graficzny interfejs do baz MySQL/PostgreSQL/ODBC dla KDE.
+knoda jest graficznym interfejsem KDE baz danych opartym
+na bibliotece classes.
 
 %description -l ru
 ÀÃ…≈Œ‘ MySQL/PostgreSQL ƒÃ— KDE.
@@ -60,6 +60,18 @@ Knoda - common part for knoda and knoda-rt.
 
 %description common -l pl
 Knoda - wspÛlna czÍ∂Ê dla knoda i knoda-rt.
+
+%package devel
+Summary:	hk_kdeclasses headers
+Summary(pl):	Nag≥Ûwki hk_kdeclasses
+Group:		Development/Libraries
+Requires:	%{name}-common = %{version}-%{release}
+
+%description devel
+hk_kdeclasses headers.
+
+%description devel -l pl
+Nag≥Ûwki hk_kdeclasses.
 
 %prep
 %setup -q -n %{name}-%{version}-test%{_test}
@@ -114,3 +126,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/services/*.desktop
 %{_datadir}/mimelnk/application/*.desktop
 %{_iconsdir}/hicolor/*/*/*.png
+#%%{_datadir}/config/magic/hk_classes.magic ???
+
+%files devel
+%defattr(644,root,root,755)
+%{_includedir}/*
