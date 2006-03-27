@@ -2,7 +2,7 @@
 #   - Check if linking with libXrender.la is OK - I'm not sure.
 #   - Check/fix Patch0
 #
-%define	_test	2
+%define	_test	3
 #
 Summary:	knoda - MySQL/PostgreSQL/any ODBC DB GUI for KDE
 Summary(pl):	knoda - Graficzny interejs do baz MySQL/PostgreSQL/ODBC dla KDE
@@ -12,6 +12,7 @@ Release:	0.test%{_test}.0.1
 License:	GPL
 Group:		Applications/Databases
 Source0:	http://dl.sourceforge.net/knoda/%{name}-%{version}-test%{_test}.tar.gz
+# Source0-md5:	f2647d6ee2252c62846efb7259050328
 Patch0:		%{name}-desktop.patch
 URL:		http://knoda.sourceforge.net/
 BuildRequires:	autoconf
