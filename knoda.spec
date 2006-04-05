@@ -117,8 +117,8 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/*.la
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post   common -p /sbin/ldconfig
-%postun common -p /sbin/ldconfig
+%post	-n hk_kdeclasses -p /sbin/ldconfig
+%postun	-n hk_kdeclasses -p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
