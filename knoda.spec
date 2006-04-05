@@ -8,7 +8,7 @@ Summary:	knoda - MySQL/PostgreSQL/any ODBC DB GUI for KDE
 Summary(pl):	knoda - Graficzny interejs do baz MySQL/PostgreSQL/ODBC dla KDE
 Name:		knoda
 Version:	0.8.1
-Release:	0.test%{_test}.0.1
+Release:	0.test%{_test}.0.2
 License:	GPL
 Group:		Applications/Databases
 Source0:	http://dl.sourceforge.net/knoda/%{name}-%{version}-test%{_test}.tar.gz
@@ -55,6 +55,7 @@ Knoda - zablokowany frontend bazy danych do u¿ytku korporacyjnego.
 Summary:	Knoda - common part for knoda and knoda-rt
 Summary(pl):	Knoda - wspólna czê¶æ dla knoda i knoda-rt
 Group:		Applications/Databases
+Requires:	hk_kdeclasses = %{version}-%{release}
 
 %description common
 Knoda - common part for knoda and knoda-rt.
@@ -62,16 +63,27 @@ Knoda - common part for knoda and knoda-rt.
 %description common -l pl
 Knoda - wspólna czê¶æ dla knoda i knoda-rt.
 
-%package devel
+%package -n hk_kdeclasses
+Summary:	hk_kdeclasses libraries
+Summary(pl):	Biblioteki hk_kdeclasses
+Group:		Development/Libraries
+
+%description -n hk_kdeclasses
+hk_kdeclasses libraries.
+
+%description -n hk_kdeclasses -l pl
+Biblioteki hk_kdeclasses.
+
+%package -n hk_kdeclasses-devel
 Summary:	hk_kdeclasses headers
 Summary(pl):	Nag³ówki hk_kdeclasses
 Group:		Development/Libraries
-Requires:	%{name}-common = %{version}-%{release}
+Requires:	hk_kdeclasses = %{version}-%{release}
 
-%description devel
+%description -n hk_kdeclasses-devel
 hk_kdeclasses headers.
 
-%description devel -l pl
+%description -n hk_kdeclasses-devel -l pl
 Nag³ówki hk_kdeclasses.
 
 %prep
@@ -119,16 +131,19 @@ rm -rf $RPM_BUILD_ROOT
 
 %files common -f %{name}.lang
 %defattr(644,root,root,755)
+%{_datadir}/apps/knoda
+%{_datadir}/mimelnk/application/*.desktop
+%{_iconsdir}/hicolor/*/*/*.png
+
+%files -n hk_kdeclasses
+%defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libhk_kde*.so
 %attr(755,root,root) %{_libdir}/kde3/libhk_*.so
 %{_libdir}/kde3/libhk_*.la
 %{_datadir}/apps/hk_kdeclasses
-%{_datadir}/apps/knoda
 %{_datadir}/services/*.desktop
-%{_datadir}/mimelnk/application/*.desktop
-%{_iconsdir}/hicolor/*/*/*.png
 #%%{_datadir}/config/magic/hk_classes.magic ???
 
-%files devel
+%files -n hk_kdeclasses-devel
 %defattr(644,root,root,755)
 %{_includedir}/*
