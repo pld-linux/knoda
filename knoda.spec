@@ -3,7 +3,7 @@
 #   - Check/fix Patch0
 #
 Summary:	knoda - MySQL/PostgreSQL/any ODBC DB GUI for KDE
-Summary(pl):	knoda - Graficzny interejs do baz MySQL/PostgreSQL/ODBC dla KDE
+Summary(pl.UTF-8):   knoda - Graficzny interejs do baz MySQL/PostgreSQL/ODBC dla KDE
 Name:		knoda
 Version:	0.8.2
 Release:	0.1
@@ -30,59 +30,59 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 knoda is a KDE-database frontend based on the hk_classes library.
 
-%description -l pl
+%description -l pl.UTF-8
 knoda jest graficznym interfejsem KDE baz danych opartym
 na bibliotece classes.
 
-%description -l ru
-ÀÃ…≈Œ‘ MySQL/PostgreSQL ƒÃ— KDE.
+%description -l ru.UTF-8
+–∫–ª–∏–µ–Ω—Ç MySQL/PostgreSQL –¥–ª—è KDE.
 
 %package rt
 Summary:	Knoda locked down database front end for corp use
-Summary(pl):	Knoda - zablokowany frontend bazy danych dla uøytku korporacyjnego
+Summary(pl.UTF-8):   Knoda - zablokowany frontend bazy danych dla u≈ºytku korporacyjnego
 Group:		Applications/Databases
 Requires:	%{name}-common = %{version}-%{release}
 
 %description rt
 Knoda locked down database front end for corp use.
 
-%description rt -l pl
-Knoda - zablokowany frontend bazy danych do uøytku korporacyjnego.
+%description rt -l pl.UTF-8
+Knoda - zablokowany frontend bazy danych do u≈ºytku korporacyjnego.
 
 %package common
 Summary:	Knoda - common part for knoda and knoda-rt
-Summary(pl):	Knoda - wspÛlna czÍ∂Ê dla knoda i knoda-rt
+Summary(pl.UTF-8):   Knoda - wsp√≥lna czƒô≈õƒá dla knoda i knoda-rt
 Group:		Applications/Databases
 Requires:	hk_kdeclasses = %{version}-%{release}
 
 %description common
 Knoda - common part for knoda and knoda-rt.
 
-%description common -l pl
-Knoda - wspÛlna czÍ∂Ê dla knoda i knoda-rt.
+%description common -l pl.UTF-8
+Knoda - wsp√≥lna czƒô≈õƒá dla knoda i knoda-rt.
 
 %package -n hk_kdeclasses
 Summary:	hk_kdeclasses libraries
-Summary(pl):	Biblioteki hk_kdeclasses
+Summary(pl.UTF-8):   Biblioteki hk_kdeclasses
 Group:		Development/Libraries
 
 %description -n hk_kdeclasses
 hk_kdeclasses libraries.
 
-%description -n hk_kdeclasses -l pl
+%description -n hk_kdeclasses -l pl.UTF-8
 Biblioteki hk_kdeclasses.
 
 %package -n hk_kdeclasses-devel
 Summary:	hk_kdeclasses headers
-Summary(pl):	Nag≥Ûwki hk_kdeclasses
+Summary(pl.UTF-8):   Nag≈Ç√≥wki hk_kdeclasses
 Group:		Development/Libraries
 Requires:	hk_kdeclasses = %{version}-%{release}
 
 %description -n hk_kdeclasses-devel
 hk_kdeclasses headers.
 
-%description -n hk_kdeclasses-devel -l pl
-Nag≥Ûwki hk_kdeclasses.
+%description -n hk_kdeclasses-devel -l pl.UTF-8
+Nag≈Ç√≥wki hk_kdeclasses.
 
 %prep
 %setup -q
