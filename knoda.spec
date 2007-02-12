@@ -3,7 +3,7 @@
 #   - Check/fix Patch0
 #
 Summary:	knoda - MySQL/PostgreSQL/any ODBC DB GUI for KDE
-Summary(pl):	knoda - Graficzny interejs do baz MySQL/PostgreSQL/ODBC dla KDE
+Summary(pl.UTF-8):   knoda - Graficzny interejs do baz MySQL/PostgreSQL/ODBC dla KDE
 Name:		knoda
 Version:	0.8
 Release:	1
@@ -30,34 +30,34 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 KDE-based frontend for MySQL/PostgreSQL/ODBC DB.
 
-%description -l pl
+%description -l pl.UTF-8
 Graficzny interfejs do baz MySQL/PostgreSQL/ODBC dla KDE.
 
-%description -l ru
-ÀÃ…≈Œ‘ MySQL/PostgreSQL ƒÃ— KDE.
+%description -l ru.UTF-8
+–∫–ª–∏–µ–Ω—Ç MySQL/PostgreSQL –¥–ª—è KDE.
 
 %package rt
 Summary:	Knoda locked down database front end for corp use
-Summary(pl):	Knoda - zablokowany frontend bazy danych dla uøytku korporacyjnego
+Summary(pl.UTF-8):   Knoda - zablokowany frontend bazy danych dla u≈ºytku korporacyjnego
 Group:		Applications/Databases
 Requires:	%{name}-common = %{version}-%{release}
 
 %description rt
 Knoda locked down database front end for corp use.
 
-%description rt -l pl
-Knoda - zablokowany frontend bazy danych do uøytku korporacyjnego.
+%description rt -l pl.UTF-8
+Knoda - zablokowany frontend bazy danych do u≈ºytku korporacyjnego.
 
 %package common
 Summary:	Knoda - common part for knoda and knoda-rt
-Summary(pl):	Knoda - wspÛlna czÍ∂Ê dla knoda i knoda-rt
+Summary(pl.UTF-8):   Knoda - wsp√≥lna czƒô≈õƒá dla knoda i knoda-rt
 Group:		Applications/Databases
 
 %description common
 Knoda - common part for knoda and knoda-rt.
 
-%description common -l pl
-Knoda - wspÛlna czÍ∂Ê dla knoda i knoda-rt.
+%description common -l pl.UTF-8
+Knoda - wsp√≥lna czƒô≈õƒá dla knoda i knoda-rt.
 
 %prep
 %setup -q
