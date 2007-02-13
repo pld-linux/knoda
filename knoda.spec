@@ -3,7 +3,7 @@
 #   - Check/fix Patch0
 #
 Summary:	knoda - MySQL/PostgreSQL/any ODBC DB GUI for KDE
-Summary(pl.UTF-8):   knoda - Graficzny interejs do baz MySQL/PostgreSQL/ODBC dla KDE
+Summary(pl.UTF-8):	knoda - Graficzny interejs do baz MySQL/PostgreSQL/ODBC dla KDE
 Name:		knoda
 Version:	0.8
 Release:	1
@@ -38,7 +38,7 @@ Graficzny interfejs do baz MySQL/PostgreSQL/ODBC dla KDE.
 
 %package rt
 Summary:	Knoda locked down database front end for corp use
-Summary(pl.UTF-8):   Knoda - zablokowany frontend bazy danych dla użytku korporacyjnego
+Summary(pl.UTF-8):	Knoda - zablokowany frontend bazy danych dla użytku korporacyjnego
 Group:		Applications/Databases
 Requires:	%{name}-common = %{version}-%{release}
 
@@ -50,7 +50,7 @@ Knoda - zablokowany frontend bazy danych do użytku korporacyjnego.
 
 %package common
 Summary:	Knoda - common part for knoda and knoda-rt
-Summary(pl.UTF-8):   Knoda - wspólna część dla knoda i knoda-rt
+Summary(pl.UTF-8):	Knoda - wspólna część dla knoda i knoda-rt
 Group:		Applications/Databases
 
 %description common
