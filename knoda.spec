@@ -12,7 +12,7 @@ Group:		Applications/Databases
 Source0:	http://dl.sourceforge.net/knoda/%{name}-%{version}.tar.gz
 # Source0-md5:	c5cef874a0d3edf8af8b74f577b88dcb
 Patch0:		%{name}-desktop.patch
-Patch1:		kde-am.patch
+Patch1:		%{name}-ac-am-fixes.patch
 Patch2:		kde-ac260-lt.patch
 URL:		http://knoda.sourceforge.net/
 BuildRequires:	autoconf
@@ -64,7 +64,7 @@ Knoda - wspólna czê¶æ dla knoda i knoda-rt.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
+%patch1 -p0
 %patch2 -p1
 
 %build
