@@ -20,11 +20,11 @@ BuildRequires:	automake
 BuildRequires:	hk_classes-devel >= %{version}
 BuildRequires:	libtool
 BuildRequires:	kdelibs-devel
+BuildRequires:	rpmbuild(macros) >= 1.129
 # withdrawn?
 BuildRequires:	xorg-lib-libXrender-devel
-BuildRequires:	rpmbuild(macros) >= 1.129
-Requires:	hk_classes = %{version}
 Requires:	%{name}-common = %{version}-%{release}
+Requires:	hk_classes = %{version}
 Obsoletes:	python-hk_kdeclasses
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
