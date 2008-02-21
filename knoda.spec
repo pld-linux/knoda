@@ -21,7 +21,7 @@ BuildRequires:	hk_classes-devel >= %{version}
 BuildRequires:	libtool
 BuildRequires:	kdelibs-devel
 # withdrawn?
-BuildRequires:	xrender-devel
+BuildRequires:	xorg-lib-libXrender-devel
 BuildRequires:	rpmbuild(macros) >= 1.129
 Requires:	hk_classes = %{version}
 Requires:	%{name}-common = %{version}-%{release}
